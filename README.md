@@ -1,9 +1,12 @@
 # Host a Static Website on GCP With Load Balancer and CDN using Terraform
 
 **CDN**
+
+
 Cloud CDN uses Google’s global edge network to serve content closer to users, which accelerates your websites and applications. Cloud CDN content can be sourced from various types of backends: Instance groups, Zonal network endpoint groups (NEGs), Internet network endpoint groups (NEGs), and Google Cloud Storage Bucket. In this article, we will focus on Google Cloud Storage for static web site. 
 
-Pre-requisites:
+**Pre-requisites:**
+
 1. We need Backend Bucket to store the terraform state files.
 2. Appropriate Permissions to the user and Reserve IP address.
 
@@ -50,14 +53,16 @@ This feature helps us not to consume space in the gcp bucket with the shell file
 
 
 **Use Infrastructure as Terraform module as follows in a seperate Git repository if suitable**
-module "gcp_cdn_staticwebsite"{
-source = "git@github.com:maniimanjari/Gcp_cdn_staticwebsite.git"
-name = var.name
-domain = var.domain
-project_id = var.project_id
-location = var.location
-IP_address = var.IP_address
-region = var.region
-Environment = var.Environment
-packageDIR = var.packageDIR
-}
+        
+        
+        module "gcp_cdn_staticwebsite"{
+        source = "git@github.com:maniimanjari/Gcp_cdn_staticwebsite.git"
+        name = var.name
+        domain = var.domain
+        project_id = var.project_id
+        location = var.location
+        IP_address = var.IP_address
+        region = var.region
+        Environment = var.Environment
+        packageDIR = var.packageDIR
+        }
